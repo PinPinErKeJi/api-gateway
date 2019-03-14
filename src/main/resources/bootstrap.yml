@@ -1,0 +1,29 @@
+#server:
+#  port: 9000
+#网关服务名称
+spring:
+  application:
+    name: api-gateway
+    #指定从哪个配置中心读取
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      profile: dev
+#指定注册中心地址
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/
+#自定义路由映射
+#zuul:
+#  routes:
+#    product-server: /apigateway/product/**
+#    order-server: /apigateway/order/**
+  #统一入口为以上配置，其他入口忽略
+#  ignored-patterns: /*-server/**
+  #处理http请求头为空的问题，接口cookie
+#  sensitiveHeaders:
+#忽略整个服务对外提供接口
+#  ignored-services: product-server
